@@ -1,0 +1,19 @@
+	<header class="app-header">
+        <div class="logo-area">
+            <img src="/assets/logo.webp" alt="VRCafe Logo" class="logo">
+        </div>
+
+        <div class="header-right">
+
+            <nav class="role-switch">
+                <button type="button" data-i18n="guest"  onclick="setRole('guest')">Guest</button>
+                <button type="button" data-i18n="worker" onclick="loginAsWorker()">Worker</button>
+                <button type="button" data-i18n="admin"  onclick="loginAsAdmin()">Admin</button>
+
+                <select class="lang-switch">
+                    <option type="button" onclick="setLanguage('en')">EN</option>
+                    <option type="button" onclick="setLanguage('nl')">NL</option>
+                </select>
+            </nav>
+        </div>
+    </header>

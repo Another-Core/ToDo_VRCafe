@@ -1,143 +1,15 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VRCafe ToDo App</title>
-
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/header.css">
-  <link rel="stylesheet" href="/styles/footer.css">
-  <link rel="stylesheet" href="/styles/layout.css">
-  <link rel="stylesheet" href="/styles/theme.css">
-</head>
-
-<body>
-	<header class="app-header">
-        <div class="logo-area">
-            <img src="/assets/logo.webp" alt="VRCafe Logo" class="logo">
-        </div>
-
-        <div class="header-right">
-
-            <nav class="role-switch">
-                <button type="button" data-i18n="guest"  onclick="setRole('guest')">Guest</button>
-                <button type="button" data-i18n="worker" onclick="loginAsWorker()">Worker</button>
-                <button type="button" data-i18n="admin"  onclick="loginAsAdmin()">Admin</button>
-
-                <select class="lang-switch">
-                    <option type="button" onclick="setLanguage('en')">EN</option>
-                    <option type="button" onclick="setLanguage('nl')">NL</option>
-                </select>
-            </nav>
-        </div>
-    </header>
-
-    <main class="app-main">
-
-        <section class="filters">
-            <div class="filters-row">
-                <select id="statusFilter" onchange="changeStatusFilter(this.value)">
-                    <option value="all"       data-i18n="allTasks">All tasks</option>
-                    <option value="completed" data-i18n="completed">Completed</option>
-                    <option value="active"    data-i18n="active">Not completed</option>
-                </select>
-
-                <select id="categoryFilter" onchange="changeCategoryFilter(this.value)">
-                    <option value="all"        data-i18n="allCategories">All categories</option>
-                    <option value="Werk"       data-i18n="work">Work</option>
-                    <option value="Persoonlijk" data-i18n="personal">Personal</option>
-                    <option value="Vrije tijd" data-i18n="freeTime">Free time</option>
-                </select>
-
-                <div class="category-visibility">
-                    <button type="button" onclick="setVisibleCategory('all')">
-                        <span data-i18n="allCategories">All categories</span>
-                    </button>
-                    <button type="button" onclick="setVisibleCategory('Werk')">
-                        <span data-i18n="work">Work</span>
-                    </button>
-                    <button type="button" onclick="setVisibleCategory('Persoonlijk')">
-                        <span data-i18n="personal">Personal</span>
-                    </button>
-                    <button type="button" onclick="setVisibleCategory('Vrije tijd')">
-                        <span data-i18n="freeTime">Free time</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="progress-bar-wrapper">
-                <span data-i18n="progress">Progress</span>:
-                <span id="globalProgressText">0 / 0</span>
-                <div class="progress-bar">
-                    <div id="globalProgressFill"></div>
-                </div>
-            </div>
-        </section>
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MainContent from "../components/MainContent.astro";
+---
 
 
-        <!-- ФОРМА ДОБАВЛЕНИЯ ЗАДАЧИ -->
-        <section class="task-form">
-            <input
-                type="text"
-                id="taskInput"
-                data-i18n-placeholder="newTaskPlaceholder"
-                placeholder="New task..."
-                required
-            >
+<BaseLayout title="VRCafe ToDo App">
+	<Header />
 
-            <select id="taskCategory">
-                <option value="Werk"        data-i18n="work">Work</option>
-                <option value="Persoonlijk" data-i18n="personal">Personal</option>
-                <option value="Vrije tijd"  data-i18n="freeTime">Free time</option>
-            </select>
+    <MainContent />
 
-            <button type="button" data-i18n="addTask" onclick="addTaskFromUI()">Add</button>
-        </section>
-
-
-        <!-- КАТЕГОРИИ / СПИСКИ ЗАДАЧ -->
-        <section class="categories">
-
-            <!-- WERK -->
-            <section class="category-block" data-category="Werk">
-                <header class="category-header">
-                    <h2 data-i18n="work">Work</h2>
-                    <span class="category-progress" id="werkProgress">0 / 0</span>
-                </header>
-                <div class="task-list" id="werkTasks"></div>
-            </section>
-
-            <!-- PERSOONLIJK -->
-            <section class="category-block" data-category="Persoonlijk">
-                <header class="category-header">
-                    <h2 data-i18n="personal">Personal</h2>
-                    <span class="category-progress" id="persoonlijkProgress">0 / 0</span>
-                </header>
-                <div class="task-list" id="persoonlijkTasks"></div>
-            </section>
-
-            <!-- VRIJE TIJD -->
-            <section class="category-block" data-category="Vrije tijd">
-                <header class="category-header">
-                    <h2 data-i18n="freeTime">Free time</h2>
-                    <span class="category-progress" id="vrijeTijdProgress">0 / 0</span>
-                </header>
-                <div class="task-list" id="vrijeTijdTasks"></div>
-            </section>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="app-footer">
-        <p data-i18n="footer">VRCafe Haarlem — ToDo Project</p>
-    </footer>
-
-
-</body>
-
-</html>
+	<Footer />
+</BaseLayout>
