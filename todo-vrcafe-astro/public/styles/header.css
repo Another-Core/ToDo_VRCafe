@@ -1,0 +1,50 @@
+.app-header {
+    background: var(--header);
+    padding: 14px 30px;
+    margin: 20px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.app-header nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.app-header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+}
+
+.app-header nav a:hover {
+    opacity: 0.8;
+}
+
+.header-lang-flag {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    text-align: center;
+}
+
+.role-switch button{
+    background: transparent;
+    border: none;
+}

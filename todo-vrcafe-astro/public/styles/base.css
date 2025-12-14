@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --bg-dark: #0F0A12;
+    --bg-section: #4A0B8A;
+    --header: #630f8e;
+
+    --text-white: #ffffff;
+    --text-gray: #d0d0d0;
+
+    --neon-green: #00FFB2;
+    --neon-pink: #FF2BCD;
+    --neon-blue: #05E6FF;
+
+    --radius: 20px;
+    --radius-full: 999px;
+}
+
+body {
+    background: var(--bg-dark);
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    color: var(--text-white);
+}

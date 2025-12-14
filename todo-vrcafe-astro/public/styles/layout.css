@@ -1,0 +1,19 @@
+.section {
+    background: var(--bg-section);
+    margin: 30px auto;
+    width: 95%;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 0 12px rgba(255,255,255,0.05);
+}
+
+.section h1, .section h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.section p {
+    color: var(--text-gray);
+    line-height: 1.6;
+}
