@@ -1,13 +1,16 @@
 <main class="app-main">
 
+        <!-- Filters -->
         <section class="filters">
             <div class="filters-row">
+                <!-- Status filter - WIP -->
                 <select id="statusFilter" onchange="changeStatusFilter(this.value)">
                     <option value="all"       data-i18n="allTasks">All tasks</option>
                     <option value="completed" data-i18n="completed">Completed</option>
                     <option value="active"    data-i18n="active">Not completed</option>
                 </select>
 
+                <!-- Category filter - WIP -->
                 <select id="categoryFilter" onchange="changeCategoryFilter(this.value)">
                     <option value="all"        data-i18n="allCategories">All categories</option>
                     <option value="Werk"       data-i18n="work">Work</option>
@@ -31,6 +34,7 @@
                 </div>
             </div>
 
+            <!-- Progress bar - WIP-->
             <div class="progress-bar-wrapper">
                 <span data-i18n="progress">Progress</span>:
                 <span id="globalProgressText">0 / 0</span>
@@ -41,8 +45,9 @@
         </section>
 
 
-        <!-- ФОРМА ДОБАВЛЕНИЯ ЗАДАЧИ -->
+        <!-- Form to make tasks - WIP -->
         <section class="task-form">
+            <!-- Text for task - WIP -->
             <input
                 type="text"
                 id="taskInput"
@@ -51,6 +56,7 @@
                 required
             >
 
+            <!-- Category choice for task - WIP -->
             <select id="taskCategory">
                 <option value="Werk"        data-i18n="work">Work</option>
                 <option value="Persoonlijk" data-i18n="personal">Personal</option>
@@ -61,10 +67,10 @@
         </section>
 
 
-        <!-- КАТЕГОРИИ / СПИСКИ ЗАДАЧ -->
+        <!-- Section display - WIP -->
         <section class="categories">
 
-            <!-- WERK -->
+            <!-- Work -->
             <section class="category-block" data-category="Werk">
                 <header class="category-header">
                     <h2 data-i18n="work">Work</h2>
@@ -73,7 +79,7 @@
                 <div class="task-list" id="werkTasks"></div>
             </section>
 
-            <!-- PERSOONLIJK -->
+            <!-- Personal -->
             <section class="category-block" data-category="Persoonlijk">
                 <header class="category-header">
                     <h2 data-i18n="personal">Personal</h2>
@@ -82,7 +88,7 @@
                 <div class="task-list" id="persoonlijkTasks"></div>
             </section>
 
-            <!-- VRIJE TIJD -->
+            <!-- Free time -->
             <section class="category-block" data-category="Vrije tijd">
                 <header class="category-header">
                     <h2 data-i18n="freeTime">Free time</h2>
