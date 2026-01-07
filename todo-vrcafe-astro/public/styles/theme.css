@@ -1,11 +1,10 @@
-.neon {
-    text-shadow: 
-        0 0 4px rgba(255,255,255,0.4),
-        0 0 8px var(--neon-blue),
-        0 0 16px var(--neon-blue);
-}
-
-button:hover,
-a:hover {
-    text-shadow: 0 0 8px var(--neon-pink);
+.neon h1,
+.neon h2,
+.neon h3,
+.neon .brand-title,
+.neon .task-title {
+  text-shadow: 
+    0 0 4px rgba(255,255,255,0.4),
+    0 0 8px var(--neon-blue),
+    0 0 16px var(--neon-blue);
 }

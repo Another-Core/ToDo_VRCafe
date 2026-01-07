@@ -1,41 +1,218 @@
-.app-footer {
-    background: #410470;
-    padding: 60px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+.app-footer{
+    background: radial-gradient(1200px 600px at 50% 0%, rgba(255,255,255,.06), transparent 60%),
+                linear-gradient(180deg, #3b0b57 0%, #250635 100%);
+    color: rgba(255,255,255,.92);
+    padding: 48px 0 28px;
+    position: relative;
+    z-index: 10;
 }
 
-.footer-columns {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 60px;
-}
-
-.footer-column h3 {
-    font-family: "Montserrat";
+.app-footer h4{
+    text-transform: uppercase;
+    letter-spacing: .06em;
     font-weight: 900;
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: white;
-}
-
-.footer-column a {
-    display: block;
-    color: var(--text-gray);
-    text-decoration: none;
-    margin-bottom: 8px;
-    transition: 0.2s;
-}
-
-.footer-column a:hover {
-    color: white;
-}
-
-.footer-bottom {
-    margin-top: 40px;
-    text-align: center;
-    color: var(--text-gray);
     font-size: 14px;
+    margin: 0 0 12px;
+    color: #fff;
+}
+
+.app-footer p, .app-footer a, .app-footer li{
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255,255,255,.78);
+}
+
+.app-footer a {
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
+}
+
+
+.footer-inner{
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+
+.footer-top{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 48px;
+    align-items: start;
+}
+
+.footer-col .footer-link{
+    display: block;
+    margin: 6px 0;
+    width: fit-content;
+}
+
+
+/* SOCIAL */
+.social-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 48px);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.social-btn {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: #2EF2A1;
+    color: #1b0033;
+    border-radius: 10px;
+    border: none;
+    transition: background-color .25s ease, color .25s ease, transform .15s ease;
+}
+
+.social-btn:hover {
+    background: #E11D48;
+    color: #fff;
+    transform: translateY(-2px);
+    fill: currentColor !important;
+}
+
+.social-icon svg,
+.social-icon svg * {
+    width: 22px;
+    height: 22px;
+}
+
+
+/* HOURS */
+.hours{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hours li{
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin: 6px 0;
+}
+
+.hours li span{
+    min-width: 92px;
+    color: rgba(255,255,255,.7);
+}
+
+.hours li b{
+    color: #fff;
+    font-weight: 800;
+}
+
+
+
+/* NEWSLETTER */
+.newsletter{
+    display: grid;
+    gap: 10px;
+    max-width: 280px;
+}
+
+.nl-input{
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(85,255,180,.65);
+    color: #fff;
+    padding: 10px 2px;
+    outline: none;
+}
+
+.nl-input::placeholder{
+    color: rgba(255,255,255,.55);
+}
+
+.app-footer .btn-accent{
+    background: rgba(0,255,178,.95);
+    color: #1b0033;
+    border-color: rgba(0,255,178,.35);
+    box-shadow: 0 10px 24px rgba(0,255,178,.18);
+}
+
+.app-footer .btn-accent:hover{
+    box-shadow: 0 14px 30px rgba(0,255,178,.24);
+}
+
+
+
+/* RATING */
+.rating{
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rating b{ 
+    color: rgba(85,255,180,1); 
+    font-size: 18px;
+}
+
+.stars{
+    color: rgba(85,255,180,1);
+    letter-spacing: 1px;
+}
+
+
+.footer-divider{
+    height: 2px;
+    margin: 26px 0 24px;
+    background: linear-gradient(90deg, transparent, rgba(85,255,180,.9), transparent);
+    opacity: .9;
+}
+
+
+/* LINKS */
+.footer-links{
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 48px;
+    align-items: start;
+}
+
+.links-col a{
+    display: block;
+    margin: 7px 0;
+    text-decoration: none;
+    color: rgba(255,255,255,.78);
+}
+
+.links-col a:hover{
+    color: #fff; 
+    text-decoration: underline;
+}
+
+
+.footer-bottom{
+    text-align: center;
+    margin-top: 22px;
+    color: rgba(255,255,255,.7);
+    font-size: 12px;
+}
+
+
+
+@media (max-width: 1100px){
+    .footer-links{
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    }
+}
+
+@media (max-width: 700px){
+    .footer-links{
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    }
+}
+
+@media (max-width: 600px){
+    .footer-top{ 
+        grid-template-columns: 1fr; 
+    }
 }

@@ -1,3 +1,104 @@
-    <footer class="app-footer">
-        <p data-i18n="footer">VRCafe Haarlem — ToDo Project</p>
-    </footer>
+---
+import { footerBot } from "../data/footerBottom.js";
+import { footerTop } from "../data/footerTop.js";
+import { footerIcons } from "../data/footerIcons.js";
+---
+
+<footer class="app-footer">
+    <div class="footer-inner">
+
+        <div class="footer-top">
+
+            <!-- LOCATION + CONTACT -->
+            <div class="footer-col">
+                <h4 data-i18n={footerTop.location.titleKey}>{footerTop.location.title}</h4>
+                {footerTop.location.lines.map((line) => <p>{line}</p>)}
+
+                <h4 class="mt" data-i18n={footerTop.contact.titleKey}>{footerTop.contact.title}</h4>
+                {footerTop.contact.items.map((it) => (
+                    <a class="footer-link" href={it.href} data-i18n={it.key}>
+                        {it.label}
+                    </a>
+                ))}
+            </div>
+
+
+            <!-- SOCIAL -->
+            <div class="footer-col">
+                <h4 data-i18n={footerTop.socials.titleKey}>{footerTop.socials.title}</h4>
+                <p data-i18n={footerTop.socials.subtitleKey}>{footerTop.socials.subtitle}</p>
+
+                <div class="social-grid">
+                    {footerTop.socials.links.map((s) => (
+                        <a class="social-btn" href={s.href} aria-label={s.label} title={s.label}>
+                            <span class="social-icon" set:html={footerIcons[s.icon]} />
+                        </a>
+                    ))}
+                </div>
+            </div>
+
+            
+            <!-- OPENING HOURS -->
+            <div class="footer-col">
+                <h4 data-i18n={footerTop.hours.titleKey}>{footerTop.hours.title}</h4>
+
+                <ul class="hours">
+                    {footerTop.hours.days.map((d) => (
+                    <li>
+                        <span data-i18n={d.key}>{d.label}</span>
+                        <b data-i18n={d.valueKey}>{d.value}</b>
+                    </li>
+                    ))}
+                </ul>
+            </div>
+
+            
+            <!-- NEWSLETTER -->
+            <div class="footer-col">
+                <h4 data-i18n={footerTop.newsletter.titleKey}>{footerTop.newsletter.title}</h4>
+
+                <div class="newsletter">
+                    <input class="nl-input" type="email"
+                    placeholder={footerTop.newsletter.placeholder}
+                    data-i18n-placeholder={footerTop.newsletter.placeholderKey}
+                    />
+                    
+                    <button class="btn btn-accent" data-i18n={footerTop.newsletter.buttonKey}>
+                        {footerTop.newsletter.button}
+                    </button>
+                </div>
+
+                <div class="rating">
+                    <span data-i18n={footerTop.newsletter.ratingPrefixKey}>
+                        {footerTop.newsletter.ratingPrefix}
+                    </span>
+                    
+                    <b>{footerTop.newsletter.ratingValue}</b>
+                    <span class="stars">{"★★★★★".slice(0, footerTop.newsletter.stars)}</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer-divider"></div>
+
+        <!-- Links -->
+        <div class="footer-links">
+            {footerBot.map((col) => (
+                <div class="links-col">
+                    <h4 data-i18n={col.titleKey}>{col.title}</h4>
+
+                    {col.links.map((link) => (
+                        <a href={link.href} data-i18n={link.key}>{link.label}</a>
+                    ))}
+                </div>
+            ))}
+        </div>
+
+
+        <div class="footer-bottom">
+            <p>© 2019/2025 — VRCafe Haarlem</p>
+        </div>
+
+    </div>
+</footer>

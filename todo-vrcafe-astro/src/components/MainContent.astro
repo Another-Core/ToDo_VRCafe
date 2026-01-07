@@ -1,102 +1,86 @@
 <main class="app-main">
-
-        <!-- Filters -->
-        <section class="filters">
-            <div class="filters-row">
-                <!-- Status filter - WIP -->
-                <select id="statusFilter" onchange="changeStatusFilter(this.value)">
-                    <option value="all"       data-i18n="allTasks">All tasks</option>
-                    <option value="completed" data-i18n="completed">Completed</option>
-                    <option value="active"    data-i18n="active">Not completed</option>
-                </select>
-
-                <!-- Category filter - WIP -->
-                <select id="categoryFilter" onchange="changeCategoryFilter(this.value)">
-                    <option value="all"        data-i18n="allCategories">All categories</option>
-                    <option value="Werk"       data-i18n="work">Work</option>
-                    <option value="Persoonlijk" data-i18n="personal">Personal</option>
-                    <option value="Vrije tijd" data-i18n="freeTime">Free time</option>
-                </select>
-
-                <div class="category-visibility">
-                    <button type="button" onclick="setVisibleCategory('all')">
-                        <span data-i18n="allCategories">All categories</span>
-                    </button>
-                    <button type="button" onclick="setVisibleCategory('Werk')">
-                        <span data-i18n="work">Work</span>
-                    </button>
-                    <button type="button" onclick="setVisibleCategory('Persoonlijk')">
-                        <span data-i18n="personal">Personal</span>
-                    </button>
-                    <button type="button" onclick="setVisibleCategory('Vrije tijd')">
-                        <span data-i18n="freeTime">Free time</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Progress bar - WIP-->
-            <div class="progress-bar-wrapper">
-                <span data-i18n="progress">Progress</span>:
-                <span id="globalProgressText">0 / 0</span>
-                <div class="progress-bar">
-                    <div id="globalProgressFill"></div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Form to make tasks - WIP -->
-        <section class="task-form">
-            <!-- Text for task - WIP -->
-            <input
-                type="text"
-                id="taskInput"
-                data-i18n-placeholder="newTaskPlaceholder"
-                placeholder="New task..."
-                required
-            >
-
-            <!-- Category choice for task - WIP -->
-            <select id="taskCategory">
-                <option value="Werk"        data-i18n="work">Work</option>
-                <option value="Persoonlijk" data-i18n="personal">Personal</option>
-                <option value="Vrije tijd"  data-i18n="freeTime">Free time</option>
+    <!-- FILTERS -->
+    <section class="filters">
+        <div class="filters-row">
+            <!-- STATUS FILTER -->
+            <select id="statusFilter" onchange="changeStatusFilter(this.value)">
+                <option value="all"       data-i18n="allTasks">All tasks</option>
+                <option value="completed" data-i18n="completed">Completed</option>
+                <option value="active"    data-i18n="active">Not completed</option>
             </select>
 
-            <button type="button" data-i18n="addTask" onclick="addTaskFromUI()">Add</button>
+            <!-- CATEGORY FILTER -->
+            <select id="categoryFilter" onchange="changeCategoryFilter(this.value)">
+                <option value="all" data-i18n="allCategories">All categories</option>
+                <option value="Work" data-i18n="work">Work</option>
+                <option value="Personal" data-i18n="personal">Personal</option>
+                <option value="FreeTime" data-i18n="freeTime">Free time</option>
+            </select>
+        </div>
+
+        <!-- GLOBAL PROGRESS BAR -->
+        <div class="progress-bar-wrapper">
+            <span data-i18n="progress">Progress</span>:
+            <span id="globalProgressText">0 / 0</span>
+            <div class="progress-bar">
+                <div id="globalProgressFill"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FORM TO MAKE TASK -->
+    <section class="task-form">
+        <!-- TEXT -->
+        <input
+        type="text"
+        id="taskInput"
+        data-i18n-placeholder="newTaskPlaceholder"
+        placeholder="New task..."
+        required
+        >
+
+        <!-- CATEGORY CHOICE -->
+        <select id="taskCategory">
+            <option value="Work" data-i18n="work">Work</option>
+            <option value="Personal" data-i18n="personal">Personal</option>
+            <option value="FreeTime"  data-i18n="freeTime">Free time</option>
+        </select>
+
+        <!-- BUTTON ADD -->
+        <button type="button" data-i18n="addTask" onclick="addTaskFromUI()">Add</button>
+    </section>
+
+
+    <!-- SECTION DISPLAY -->
+    <section class="categories">
+
+        <!-- WORK -->
+        <section class="category-block" data-category="Work">
+            <header class="category-header">
+                <h2 data-i18n="work">Work</h2>
+                <span class="category-progress" id="workProgress">0 / 0</span>
+            </header>
+            <div class="task-list" id="workTasks" data-category="Work"></div>
         </section>
 
-
-        <!-- Section display - WIP -->
-        <section class="categories">
-
-            <!-- Work -->
-            <section class="category-block" data-category="Werk">
-                <header class="category-header">
-                    <h2 data-i18n="work">Work</h2>
-                    <span class="category-progress" id="werkProgress">0 / 0</span>
-                </header>
-                <div class="task-list" id="werkTasks"></div>
-            </section>
-
-            <!-- Personal -->
-            <section class="category-block" data-category="Persoonlijk">
-                <header class="category-header">
-                    <h2 data-i18n="personal">Personal</h2>
-                    <span class="category-progress" id="persoonlijkProgress">0 / 0</span>
-                </header>
-                <div class="task-list" id="persoonlijkTasks"></div>
-            </section>
-
-            <!-- Free time -->
-            <section class="category-block" data-category="Vrije tijd">
-                <header class="category-header">
-                    <h2 data-i18n="freeTime">Free time</h2>
-                    <span class="category-progress" id="vrijeTijdProgress">0 / 0</span>
-                </header>
-                <div class="task-list" id="vrijeTijdTasks"></div>
-            </section>
-
+        <!-- PERSONAL -->
+        <section class="category-block" data-category="Personal">
+            <header class="category-header">
+                <h2 data-i18n="personal">Personal</h2>
+                <span class="category-progress" id="personalProgress">0 / 0</span>
+            </header>
+            <div class="task-list" id="personalTasks" data-category="Personal" data-category="Personal"></div>
         </section>
 
-    </main>
+        <!-- FREE TIME -->
+        <section class="category-block" data-category="FreeTime">
+            <header class="category-header">
+                <h2 data-i18n="freeTime">Free time</h2>
+                <span class="category-progress" id="freeTimeProgress">0 / 0</span>
+            </header>
+            <div class="task-list" id="freeTimeTasks" data-category="FreeTime"></div>
+        </section>
+
+    </section>
+</main>

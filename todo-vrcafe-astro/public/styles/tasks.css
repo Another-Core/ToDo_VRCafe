@@ -1,0 +1,331 @@
+.task-list {
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  border: 2px dashed transparent;
+  border-radius: 14px;
+  transition: 
+    border-color 0.2s ease, 
+    background-color 0.2s ease;
+}
+
+.task-item {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* TEXT */
+.task-title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* DRAG */
+.task-list.drag-over{
+  background: rgba(0,255,178,.05);
+  border: 2px dashed #00ffd5;
+  border-radius: 14px;
+}
+
+
+
+.drag-handle {
+  cursor: grab;
+  user-select: none;
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+.task-item:active .drag-handle {
+  cursor: grabbing;
+}
+
+
+
+/* ===== BUTTONS ===== */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.92);
+
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: transform .15s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.09);
+}
+
+.btn:active{
+  transform: translateY(0px);
+}
+
+
+/* BUTTON DELETE */
+.task-item .delete {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+
+  font: inherit;
+  appearance: none;
+}
+
+.btn-danger{
+  background: rgba(225,29,72,.18);
+  border-color: rgba(225,29,72,.35);
+  color: rgba(255,255,255,.92);
+}
+
+.btn-danger:hover{
+  background: rgba(225,29,72,.28);
+}
+
+/* BUTTON EDIT */
+.btn-ghost{
+  background: transparent;
+  border-color: rgba(255,255,255,.18);
+}
+
+.btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,255,178,.18);
+}
+
+button.edit {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.25);
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button.edit:hover {
+  background: rgba(0,255,178,.2);
+  border-color: rgba(0,255,178,.6);
+}
+
+
+/* FILTERS */
+.filters{
+  width: min(1200px, 92%);
+  margin: 110px auto 14px;
+  padding: 14px;
+
+  border-radius: 18px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 14px 36px rgba(0,0,0,.38);
+}
+
+.filters-row{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+#statusFilter, #categoryFilter{
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 12px;
+
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+  outline: none;
+
+  font-weight: 700;
+  font-size: 13px;
+  min-width: 170px;
+}
+
+#statusFilter:focus, #categoryFilter:focus{
+  border-color: rgba(0,255,178,.65);
+  box-shadow: 0 0 0 3px rgba(0,255,178,.18);
+}
+
+/* PROGRESS */
+.progress-bar-wrapper{
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 10px;
+  align-items: center;
+
+  padding: 10px 12px;
+  border-radius: 14px;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.progress-bar-wrapper span{
+  font-weight: 800;
+  font-size: 13px;
+  color: rgba(255,255,255,.92);
+}
+
+#globalProgressText{
+  font-weight: 900;
+  color: rgba(0,255,178,.95);
+}
+
+.progress-bar{
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+#globalProgressFill{
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00FFB2, #2EF2A1);
+  box-shadow: 0 0 16px rgba(0,255,178,.35);
+  transition: width .25s ease;
+}
+
+
+/*ADD TASK FORM */
+.task-form{
+  width: min(1200px, 92%);
+  margin: 0 auto 18px;
+  padding: 14px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  border-radius: 18px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 14px 36px rgba(0,0,0,.38);
+}
+
+#taskInput{
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 12px;
+
+  flex: 1;
+  min-width: 240px;
+
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+  outline: none;
+
+  font-weight: 700;
+  font-size: 13px;
+}
+
+#taskInput::placeholder{
+  color: rgba(255,255,255,.55);
+}
+
+#taskInput:focus{
+  border-color: rgba(0,255,178,.65);
+  box-shadow: 0 0 0 3px rgba(0,255,178,.18);
+}
+
+#taskCategory{
+  height: 38px;
+  padding: 0 12px;
+  border-radius: 12px;
+
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+  outline: none;
+
+  font-weight: 800;
+  font-size: 13px;
+  min-width: 160px;
+}
+
+#taskCategory:focus{
+  border-color: rgba(0,255,178,.65);
+  box-shadow: 0 0 0 3px rgba(0,255,178,.18);
+}
+
+
+.task-form button{
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(0,255,178,.35);
+  background: rgba(0,255,178,.95);
+  color: #1b0033;
+
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.task-form button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(0,255,178,.22);
+  filter: brightness(1.05);
+}
+
+.task-form button:active{
+  transform: translateY(0px);
+}
+
+
+
+
+@media (max-width: 600px){
+  .progress-bar-wrapper{
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .progress-bar-wrapper span{
+    justify-self: start;
+  }
+  .progress-bar{
+    width: 100%;
+  }
+}

@@ -1,50 +1,202 @@
 .app-header {
-    background: var(--header);
-    padding: 14px 30px;
-    margin: 20px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+position: fixed;
+top: 16px;
+left: 125px;
+right: 125px;
+
+height: 60px;
+border-radius: 20px;
+z-index: 1000;
+
+background: linear-gradient(
+  180deg,
+  #6b1fa8 0%,
+  #5e1799 100%
+);
+
+border: 1px solid rgba(255,255,255,.08);
+
+box-shadow:
+  0 14px 40px rgba(0,0,0,.45),
+  inset 0 1px 0 rgba(255,255,255,.08);
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+padding: 0 24px;
 }
 
 .app-header nav {
-    display: flex;
-    align-items: center;
-    gap: 26px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
 }
 
 .app-header nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-    font-family: "Montserrat", sans-serif;
-    letter-spacing: 0.5px;
-    font-size: 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.5px;
+  font-size: 15px;
 }
 
 .app-header nav a:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
-.header-lang-flag {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid white;
-}
-
+/* LOGO */
 .logo {
-    height: 50px;
-    width: auto;
-    text-align: center;
+  height: 50px;
+  width: auto;
+  text-align: center;
 }
+
+.logo-area {
+  display: flex;
+  align-items: center;
+}
+
 
 .role-switch button{
-    background: transparent;
-    border: none;
+  background: transparent;
+  border: none;
+}
+
+
+/* HEADER INSIDE */
+.header-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  height: 72px;
+  padding: 0 16px;
+}
+
+
+/* HEADER RIGHT */
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* ROLES */
+  .role-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.role-switch button {
+  height: 36px;
+  padding: 0 14px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: transparent;
+
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .03em;
+
+  cursor: pointer;
+  transition:
+    background .2s ease,
+    box-shadow .2s ease,
+    transform .15s ease,
+    border-color .2s ease;
+}
+
+.role-switch button:hover {
+  background: rgba(255,255,255,.12);
+  transform: translateY(-1px);
+}
+
+.role-switch button.active {
+  background: linear-gradient(135deg, #00FFB2, #2EF2A1);
+  color: #1b0033;
+  border-color: transparent;
+  box-shadow: 0 0 14px rgba(0,255,178,.45);
+}
+
+.role-switch button.admin {
+  border-color: rgba(255,43,205,.6);
+}
+
+.role-switch button.admin.active {
+  background: linear-gradient(135deg, #FF2BCD, #E11D48);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(255,43,205,.55);
+}
+
+
+/* LANGUAGE SELECT */
+.lang-switch {
+  height: 36px;
+  padding: 0 10px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.25);
+
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+
+  cursor: pointer;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.lang-switch:hover {
+  border-color: rgba(255,255,255,.45);
+}
+
+.lang-switch:focus {
+  border-color: #00FFB2;
+  box-shadow: 0 0 0 3px rgba(0,255,178,.25);
+}
+
+/* NEON */
+.neon-toggle{
+  height: 36px;
+  padding: 0 14px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.18);
+
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .03em;
+
+  cursor: pointer;
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.neon-toggle:hover{
+  background: rgba(255,255,255,.12);
+  transform: translateY(-1px);
+}
+
+.neon-toggle.active{
+  border-color: rgba(5,230,255,.55);
+  box-shadow: 0 0 14px rgba(5,230,255,.35);
+}
+
+
+@media (max-width: 480px) {
+  .header-inner {
+    height: auto;
+    padding: 10px 14px;
+  }
+
+  .role-switch {
+    gap: 6px;
+  }
 }

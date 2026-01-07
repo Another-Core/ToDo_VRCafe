@@ -1,19 +1,25 @@
-	<header class="app-header">
+<header class="app-header">
+    <div class="header-inner">
         <div class="logo-area">
             <img src="/assets/logo.webp" alt="VRCafe Logo" class="logo">
+            <span class="brand-title neon">VRCafe ToDo</span>
         </div>
 
         <div class="header-right">
+            <nav class="role-switch" aria-label="Role switch">
+                <!-- ROLES SWITCH -->
+                <button class="guest" onclick="login('guest')">Guest</button>
+                <button class="worker" onclick="login('worker1')">Worker</button>
+                <button class="admin" onclick="login('admin')">Admin</button>
 
-            <nav class="role-switch">
-                <button type="button" data-i18n="guest"  onclick="setRole('guest')">Guest</button>
-                <button type="button" data-i18n="worker" onclick="loginAsWorker()">Worker</button>
-                <button type="button" data-i18n="admin"  onclick="loginAsAdmin()">Admin</button>
-
-                <select class="lang-switch">
-                    <option type="button" onclick="setLanguage('en')">EN</option>
-                    <option type="button" onclick="setLanguage('nl')">NL</option>
+                <!-- LANGUAGE SWITCH -->
+                <select class="lang-switch" onchange="setLanguage(this.value)">
+                    <option value="en">EN</option>
+                    <option value="nl">NL</option>
                 </select>
+
+                <button class="neon-toggle" type="button" onclick="toggleNeon()">Neon</button>
             </nav>
         </div>
-    </header>
+    </div>
+</header>
