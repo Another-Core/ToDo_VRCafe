@@ -37,8 +37,6 @@
   border-radius: 14px;
 }
 
-
-
 .drag-handle {
   cursor: grab;
   user-select: none;
@@ -92,7 +90,6 @@
 .task-item .delete {
   margin-left: auto;
   background: transparent;
-  border: none;
   cursor: pointer;
   color: white;
 
@@ -101,6 +98,7 @@
 }
 
 .btn-danger{
+  border: solid;
   background: rgba(225,29,72,.18);
   border-color: rgba(225,29,72,.35);
   color: rgba(255,255,255,.92);
@@ -130,6 +128,30 @@ button.edit {
   cursor: pointer;
   font-weight: 700;
 }
+
+/* BUTTON MOVE */
+.move-dialog{
+  border: none;
+  border-radius: 16px;
+  padding: 18px;
+  background: #1a0f2b;
+  color: #fff;
+  width: min(90vw, 320px);
+}
+
+.move-dialog select{
+  width: 100%;
+  margin: 12px 0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.move-actions{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
 
 button.edit:hover {
   background: rgba(0,255,178,.2);
@@ -314,18 +336,43 @@ button.edit:hover {
 }
 
 
+@media (max-width: 600px) {
 
-
-@media (max-width: 600px){
-  .progress-bar-wrapper{
-    grid-template-columns: 1fr;
-    gap: 6px;
+  .task-item{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    max-width: 100%;
   }
 
-  .progress-bar-wrapper span{
-    justify-self: start;
+  .task-title{
+    flex: 1 1 160px;
+    min-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
-  .progress-bar{
-    width: 100%;
+
+  .task-item .btn{
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+
+  .task-item .edit,
+  .task-item .move,
+  .task-item .delete{
+    order: 10;
+  }
+
+  .task-item .edit,
+  .task-item .move,
+  .task-item .delete{
+    flex: 1 1 calc(33.333% - 6px);
+    text-align: center;
   }
 }
+
+

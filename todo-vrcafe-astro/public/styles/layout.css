@@ -24,8 +24,6 @@
   line-height: 1.6;
 }
 
-
-
 .categories {
   display: flex;
   gap: 20px;
@@ -47,4 +45,13 @@
 
 .app-main {
   padding-top: 120px;
+}
+
+
+@media (max-width: 600px){
+  .categories{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 }

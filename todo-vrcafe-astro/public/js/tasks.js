@@ -1,3 +1,8 @@
+function isTouchDevice() {
+  return window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+}
+
+
 // FILTER
 function applyFilters(tasks) {
   return tasks.filter(task => {
@@ -63,9 +68,15 @@ function renderTasks(tasksList) {
     editBtn.textContent = translations[currentLang].edit;
     editBtn.onclick = () => editTask(task.id);
 
+    // BUTTON MOVE
+    const moveBtn = document.createElement("button");
+    moveBtn.className = "btn btn-ghost move";
+    moveBtn.textContent = translations[currentLang]?.move;
+    moveBtn.onclick = () => openMoveDialog(task.id);
+
     // BUTTON DELETE
     const delBtn = document.createElement("button");
-    delBtn.className = "btn btn-danger delete neon";
+    delBtn.className = "btn btn-danger delete";
     delBtn.textContent = translations[currentLang].delete;
     delBtn.onclick = () => deleteTask(task.id);
 
@@ -74,15 +85,19 @@ function renderTasks(tasksList) {
 
     // FOR ADMIN SHOW EDIT AND DELETE
     if (isAdmin()) {
-      item.append(editBtn, delBtn);
+      item.append(editBtn);
+
+      if (isTouchDevice()) {
+        item.append(moveBtn);
+      }
+
+      item.append(delBtn);
     }
 
     // CHECK IF WE HAVE CONTAINER FOR ITEM
     containers[task.category]?.appendChild(item);
   });
 }
-
-
 
 // CREATE TASK (ONLY ADMIN)
 function addTaskFromUI() {
@@ -203,3 +218,45 @@ function editTask(id) {
   saveTasks(tasks);
   updateUI();
 }
+
+// MOVE TASK (ONLY ADMIN)
+let moveTaskId = null;
+
+function openMoveDialog(taskId) {
+  if (!isAdmin()) return;
+
+  const task = tasks.find(t => t.id === taskId);
+  if (!task) return;
+
+  moveTaskId = taskId;
+
+  const dialog = document.getElementById("moveDialog");
+  const select = document.getElementById("moveSelect");
+  if (!dialog || !select) return;
+
+  select.value = task.category;
+
+  dialog.showModal();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dialog = document.getElementById("moveDialog");
+  const select = document.getElementById("moveSelect");
+  const confirmBtn = document.getElementById("moveConfirm");
+
+  if (!dialog || !select || !confirmBtn) return;
+
+  confirmBtn.addEventListener("click", () => {
+    if (moveTaskId === null) return;
+
+    const task = tasks.find(t => t.id === moveTaskId);
+    if (!task) return;
+
+    task.category = select.value;
+    saveTasks(tasks);
+    updateUI();
+
+    dialog.close(); 
+  });
+
+});

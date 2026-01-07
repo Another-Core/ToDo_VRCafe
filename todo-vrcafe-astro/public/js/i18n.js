@@ -12,7 +12,11 @@ const translations = {
         newTaskPlaceholder: "New task...",
         footer: "VRCafe Haarlem — ToDo Project",
         edit: "Edit",
+        move: "Move",
         delete: "Delete",
+        moveTask: "Move task",
+        confirm: "Confirm",
+        cancel: "Cancel",
 
         // FOOTER TOP (EN) 
         footer_location_title: "LOCATION",
@@ -111,7 +115,11 @@ const translations = {
         newTaskPlaceholder: "Nieuwe taak...",
         footer: "VRCafe Haarlem — ToDo Project",
         edit: "Bewerken",
+        move: "Verplaatsen",
         delete: "Verwijderen",
+        moveTask: "Taak verplaatsen",
+        confirm: "Bevestigen",
+        cancel: "Annuleren",
 
 
         // FOOTER TOP (NL)

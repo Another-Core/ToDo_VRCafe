@@ -83,4 +83,27 @@
         </section>
 
     </section>
+
+    <!-- MOVE FOR PHONE -->
+    <dialog id="moveDialog" class="move-dialog">
+        <h3 data-i18n="moveTask">Move task</h3>
+
+        <select id="moveSelect">
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="FreeTime">Free time</option>
+        </select>
+
+        <div class="move-actions">
+            <button id="moveConfirm" class="btn btn-accent">
+                <span data-i18n="confirm">Confirm</span>
+            </button>
+
+            <button onclick="document.getElementById('moveDialog').close()"
+                class="btn btn-ghost">
+                <span data-i18n="cancel">Cancel</span>
+            </button>
+        </div>
+    </dialog>
+
 </main>
