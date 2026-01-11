@@ -190,7 +190,7 @@ padding: 0 24px;
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
 
   .app-header {
     left: 10px;

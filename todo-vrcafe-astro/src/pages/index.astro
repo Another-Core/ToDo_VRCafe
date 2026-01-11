@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import MainContent from "../components/MainContent.astro";
+import { VERSION } from "../config/version.js";
 ---
 
 
@@ -13,19 +14,19 @@ import MainContent from "../components/MainContent.astro";
 
 	<Footer />
 
-	<script src="/js/users.js" is:inline></script>
-	<script src="/js/auth.js" is:inline></script>
+	<script src={`/js/users.js?v=${VERSION}`}></script>
+	<script src={`/js/auth.js?v=${VERSION}`}></script>
 
-	<script src="/js/storage.js" is:inline></script>
-	<script src="/js/state.js" is:inline></script>
+	<script src={`/js/storage.js?v=${VERSION}`}></script>
+	<script src={`/js/state.js?v=${VERSION}`}></script>
 
-	<script src="/js/i18n.js" is:inline></script>
-	<script src="/js/permissions.js" is:inline></script>
+	<script src={`/js/i18n.js?v=${VERSION}`}></script>
+	<script src={`/js/permissions.js?v=${VERSION}`}></script>
 
-	<script src="/js/dragdrop.js" is:inline></script>
-	<script src="/js/tasks.js" is:inline></script>
-	<script src="/js/progress.js" is:inline></script>
+	<script src={`/js/dragdrop.js?v=${VERSION}`}></script>
+	<script src={`/js/tasks.js?v=${VERSION}`}></script>
+	<script src={`/js/progress.js?v=${VERSION}`}></script>
 
-	<script src="/js/app.js" is:inline></script>
+	<script src={`/js/app.js?v=${VERSION}`}></script>
 
 </BaseLayout>

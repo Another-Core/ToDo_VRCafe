@@ -1,5 +1,12 @@
+.category-header {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .task-list {
   min-height: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
   display: flex;
   flex-direction: column;
   border: 2px dashed transparent;
@@ -336,7 +343,15 @@ button.edit:hover {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
+
+  .category-header{
+    padding: 0;
+  }
+
+  .task-list{
+    padding: 0;
+  }
 
   .task-item{
     display: flex;
